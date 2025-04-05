@@ -2,6 +2,7 @@ from fastapi import FastAPI, Query
 from pydantic import BaseModel
 from typing import List
 import json
+import os
 from text_processing import preprocess_text
 from compute_cosine import compute_cosine_similarity  
 
@@ -10,10 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # Allow requests from all origins (you can restrict this to specific origins if needed)
 import nltk
 
-# Download required resources at runtime (only if not present)
-nltk.download("punkt")
-nltk.download("stopwords")
-nltk.download("wordnet")
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
 
 
 app = FastAPI()
