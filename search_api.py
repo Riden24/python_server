@@ -5,7 +5,7 @@ import json
 import os
 from text_processing import preprocess_text
 from compute_cosine import compute_cosine_similarity  
-
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 # Allow requests from all origins (you can restrict this to specific origins if needed)
@@ -34,6 +34,8 @@ with open("fused_image_data.json", "r") as f:
 @app.get("/search")
 async def search(query: str = Query(...)):
     query_tokens = preprocess_text(query)
+    if not query_tokens:
+        raise HTTPException(status_code=400, detail="Invalid query")
     ranked_docs = compute_cosine_similarity(tf_idf, query_tokens, inverted_index, len(documents))
 
     results = [

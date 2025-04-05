@@ -1,19 +1,24 @@
 
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
 import re
 import nltk
 import os
 from nltk.stem import WordNetLemmatizer
-nltk_data_path = os.path.join(os.path.dirname(__file__), "nltk_data")
-nltk.data.path.append(nltk_data_path)
-# Ensure required NLTK data is downloaded
-nltk.download('punkt', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
-nltk.download('stopwords', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
-nltk.download('wordnet', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
-
-from nltk.tokenize import word_tokenize
 import json
+# nltk_data_path = os.path.join(os.path.dirname(__file__), "nltk_data")
+# nltk.data.path.append(nltk_data_path)
+# # Ensure required NLTK data is downloaded
+# nltk.download('punkt', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
+# nltk.download('stopwords', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
+# nltk.download('wordnet', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
+
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
+
+
+
 
 # "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Strawberry_poison_dart_frog_%2870539%29.jpg/500px-Strawberry_poison_dart_frog_%2870539%29.jpg",
 # "file_page_url": "https://en.wikipedia.org/wiki/File:Strawberry_poison_dart_frog_(70539).jpg",
