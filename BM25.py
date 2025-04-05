@@ -71,13 +71,13 @@ doc_lookup = {
     for i, doc in enumerate(documents)
 }
 
-custom_query = "red frog"
-query_dict = {"custom_query": custom_query}  # Format query as a dictionary
+# custom_query = "red frog"
+# query_dict = {"custom_query": custom_query}  # Format query as a dictionary
 
-bm25_scores = compute_bm25(inverted_index, documents, custom_query)
-print(bm25_scores)
+# bm25_scores = compute_bm25(inverted_index, documents, custom_query)
+# print(bm25_scores)
 
-# Ranking
-# ranked_docs = sorted(bm25_scores["custom_query"].items(), key=lambda x: x[1], reverse=True)[:10]
+# # Ranking
+# # ranked_docs = sorted(bm25_scores["custom_query"].items(), key=lambda x: x[1], reverse=True)[:10]
 
-display_results(bm25_scores, doc_lookup, top_n=10)
+# display_results(bm25_scores, doc_lookup, top_n=10)
