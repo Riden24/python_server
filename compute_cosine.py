@@ -53,8 +53,9 @@ def compute_cosine_similarity(tf_idf, query, inverted_index, N):
 def display_results(ranked_results, doc_lookup, top_n=10):
     """Display the top N ranked image search results with their titles and allow the user to view one."""
     print("\n🔍 Top Image Search Results:\n")
+    
     for rank, (doc_id, score) in enumerate(ranked_results[:top_n], start=1):
-        title = doc_lookup.get(doc_id, ("Unknown Title", ""))[0]
+        title = doc_lookup.get(str(doc_id), ("Unknown Title2", ""))[0]
         print(f"{rank}. 📄 [{doc_id}] — {title} (Score: {score:.4f})")
 
     doc_id_to_read = input("\nEnter an image ID to view details (e.g., image_2.jpg), or press Enter to skip: ").strip()
