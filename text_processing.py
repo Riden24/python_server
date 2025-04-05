@@ -5,7 +5,13 @@ import re
 import nltk
 import os
 from nltk.stem import WordNetLemmatizer
-nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
+nltk_data_path = os.path.join(os.path.dirname(__file__), "nltk_data")
+nltk.data.path.append(nltk_data_path)
+# Ensure required NLTK data is downloaded
+nltk.download('punkt', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
+nltk.download('stopwords', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
+nltk.download('wordnet', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
+
 from nltk.tokenize import word_tokenize
 import json
 
