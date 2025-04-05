@@ -6,13 +6,12 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 nltk.download('wordnet')  # Download WordNet data
 nltk.download('stopwords')  # Download stopwords list
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 import json
 
 # "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Strawberry_poison_dart_frog_%2870539%29.jpg/500px-Strawberry_poison_dart_frog_%2870539%29.jpg",
 # "file_page_url": "https://en.wikipedia.org/wiki/File:Strawberry_poison_dart_frog_(70539).jpg",
-
-import json
 
 import json
 
