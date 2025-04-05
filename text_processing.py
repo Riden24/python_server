@@ -3,10 +3,9 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import re
 import nltk
+import os
 from nltk.stem import WordNetLemmatizer
-nltk.download('wordnet')  # Download WordNet data
-nltk.download('stopwords')  # Download stopwords list
-nltk.download('punkt')
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
 from nltk.tokenize import word_tokenize
 import json
 
