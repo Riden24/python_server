@@ -13,7 +13,7 @@ import json
 # nltk.download('punkt', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
 # nltk.download('stopwords', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
 # nltk.download('wordnet', download_dir=os.path.join(os.path.dirname(__file__), "nltk_data"))
-
+nltk.download('punkt_tab')
 nltk.download('punkt', quiet=True)
 nltk.download('stopwords', quiet=True)
 
