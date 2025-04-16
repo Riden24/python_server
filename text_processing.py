@@ -72,6 +72,12 @@ def preprocess_text(text):
 
 
 from collections import defaultdict
+from textblob import TextBlob
+
+def correct_query_spelling(query: str) -> str:
+    blob = TextBlob(query)
+    corrected = blob.correct()
+    return str(corrected)
 
 def build_inverted_index(documents):
     inverted_index = defaultdict(list)  # {term: [(doc_id, freq), ...]}

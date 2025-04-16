@@ -5,6 +5,7 @@ import json
 import os
 from text_processing import preprocess_text
 from compute_cosine import compute_cosine_similarity  
+from text_processing import correct_query_spelling
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from BM25 import compute_bm25
@@ -34,6 +35,7 @@ with open("fused_image_data.json", "r") as f:
 
 @app.get("/search")
 async def search(query: str = Query(...)):
+    query = correct_query_spelling(query)
     query_tokens = preprocess_text(query)
     if not query_tokens:
         raise HTTPException(status_code=400, detail="Invalid query")
@@ -55,6 +57,7 @@ async def search(query: str = Query(...)):
 @app.get("/search/bm25")
 async def search_bm25(query: str = Query(...), k1: float = 1.5, b: float = 0.75):
     """New BM25 search endpoint"""
+    query = correct_query_spelling(query)
     query_tokens = preprocess_text(query)
     if not query_tokens:
         raise HTTPException(status_code=400, detail="Invalid query")
