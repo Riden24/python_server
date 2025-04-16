@@ -89,8 +89,6 @@ def build_inverted_index(documents):
         artist = document.get("Artist", "")  
         image_description = document.get("ImageDescription", "")  
         caption = document.get("caption", "")
-        # clip_label = document.get("clip_label", "")
-
 
         
         if not title:  # Skip documents without text
